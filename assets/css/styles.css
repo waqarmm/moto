@@ -1,0 +1,210 @@
+body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 100.5%;
+  overflow-x: hidden;
+}
+:root {
+  --blue: rgb(64 128 203);
+  --lightBrown: rgb(194 153 103);
+  --lightBlack: #5b5b5b;
+  --lightBlue: #bad5e6;
+  --white: #fff;
+}
+.form-container {
+  display: grid;
+  height: 100vh;
+  grid-template-columns: 1fr;
+  background-color: var(--lightBlue);
+  justify-content: center;
+}
+.form-container .form-section {
+  display: grid;
+  width: 70%;
+  align-content: start;
+  margin: 0 auto;
+  padding: 3rem 0;
+  box-sizing: border-box;
+}
+.form-container .form-section .form-content {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  border: 1px solid rgb(64 128 203);
+}
+.form-container .form-section .form-content .form-control:nth-child(1),
+.form-container .form-section .form-content .form-control:nth-child(2),
+.form-container .form-section .form-content .form-control:nth-child(3) {
+  grid-column: span 4;
+}
+.form-container .form-section .form-content .form-control:nth-child(4),
+.form-container .form-section .form-content .form-control:nth-child(5) {
+  grid-column: span 6;
+}
+.form-container .form-section .form-content .form-control:nth-child(6),
+.form-container .form-section .form-content .form-control:nth-child(7) {
+  grid-column: span 6;
+}
+.form-container .form-section .form-content .form-control:nth-child(8) {
+  grid-column: span 12;
+}
+.form-container .form-section .form-content .form-control:nth-child(9),
+.form-container .form-section .form-content .form-control:nth-child(10),
+.form-container .form-section .form-content .form-control:nth-child(11) {
+  grid-column: span 4;
+}
+.form-container .form-section .form-content .form-control {
+  display: grid;
+  align-items: center;
+  padding: 1rem;
+  border: 1px solid var(--blue);
+  position: relative;
+}
+.form-container .form-section .form-content .form-control > span {
+  display: flex;
+  justify-content: flex-end;
+}
+.form-container .form-section .form-content .form-control span .tool-icon {
+  width: 20px;
+  height: 20px;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  background-color: var(--lightBrown);
+  cursor: pointer;
+}
+.form-container
+  .form-section
+  .form-content
+  .form-control
+  span
+  .tool-icon:hover {
+  transform: scale(1.01, 1.01);
+}
+.form-container
+  .form-section
+  .form-content
+  .form-control
+  span
+  .tool-icon:not(:last-child) {
+  border-right: 1px solid #ffffff21;
+}
+.form-container .form-section .form-content .form-control .input-control {
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  border: 2px solid var(--lightBrown);
+}
+.form-container
+  .form-section
+  .form-content
+  .form-control
+  .input-control
+  .input-field {
+  width: 100%;
+  box-sizing: border-box;
+  height: 30px;
+  outline: none;
+  padding-left: 0.5rem;
+  padding-right: 1.4rem;
+  border: 1px solid var(--lightBrown);
+}
+.form-container
+  .form-section
+  .form-content
+  .form-control
+  .input-control
+  .input-field::placeholder {
+  color: var(--lightBlack);
+  text-transform: capitalize;
+}
+
+.form-container .form-section .form-content .form-control .add-new {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-self: center;
+}
+.form-container .form-section .form-content .form-control .add-new .add-icon {
+  position: absolute;
+  top: -10px;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  background-color: #c29967;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  color: var(--white);
+  cursor: pointer;
+}
+.form-container
+  .form-section
+  .form-content
+  .form-control
+  .add-new
+  .add-icon:hover {
+  transform: scale(1.1, 1.1);
+}
+.form-container .form-section .form-content .form-control .add-new {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-self: center;
+}
+.form-container .form-section .form-content .form-control .add-new-input {
+  width: 100%;
+  box-sizing: border-box;
+  height: 33px;
+  background-color: var(--lightBrown);
+  border: 2px solid #a87e4a;
+  outline: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+.form-container .form-section .form-content .form-control .add-new-icon {
+  color: var(--white);
+  cursor: pointer;
+}
+.form-container .form-section .form-content .form-control .add-new-icon:hover {
+  transform: scale(1.1, 1.1);
+}
+.form-container .form-section .form-content .form-control .input-icon {
+  position: absolute;
+  top: 7px;
+  right: 10px;
+  color: var(--lightBlack);
+  font-size: 0.9rem;
+}
+.form-container .form-section .form-content .form-control .fa-phone-volume {
+  transform: rotate(320deg);
+}
+
+@media screen and (max-width: 600px) {
+  .form-container .form-section {
+    width: 95%;
+  }
+  .form-container .form-section .form-content .form-control:nth-child(1),
+  .form-container .form-section .form-content .form-control:nth-child(2),
+  .form-container .form-section .form-content .form-control:nth-child(3),
+  .form-container .form-section .form-content .form-control:nth-child(4),
+  .form-container .form-section .form-content .form-control:nth-child(5),
+  .form-container .form-section .form-content .form-control:nth-child(6),
+  .form-container .form-section .form-content .form-control:nth-child(7),
+  .form-container .form-section .form-content .form-control:nth-child(8),
+  .form-container .form-section .form-content .form-control:nth-child(9),
+  .form-container .form-section .form-content .form-control:nth-child(10),
+  .form-container .form-section .form-content .form-control:nth-child(11) {
+    grid-column: span 12;
+  }
+}
+@media screen and (max-width: 992px) {
+  .form-container .form-section {
+    width: 90%;
+  }
+}
