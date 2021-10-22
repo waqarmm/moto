@@ -2,37 +2,179 @@ body {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font-size: 100.5%;
   overflow-x: hidden;
 }
 :root {
-  --blue: rgb(64 128 203);
+  --blue: #478fd0;
+  --darkBlue: #3b61b5;
   --lightBrown: rgb(194 153 103);
+  --darkBrown: #7d6642;
   --lightBlack: #5b5b5b;
   --lightBlue: #bad5e6;
+  --lightGrey: #acacac;
+  --lightGreen: #4fa498;
+  --maroon: #975830;
   --white: #fff;
+  --lightBorder: #ffffff21;
+  --red: #d73b3d;
+  --black: #2b2b2b;
+}
+.bg-blue {
+  background-color: var(--blue) !important;
+}
+.bg-black {
+  background-color: var(--black) !important;
+}
+.text-white {
+  color: var(--white);
+}
+.text-red {
+  color: var(--red);
+}
+.text-black {
+  color: var(--black);
+}
+.bold {
+  font-weight: 700;
+}
+.light {
+  font-weight: 100;
+}
+.m-0 {
+  margin: 0;
+}
+.p-0 {
+  padding: 0;
+}
+p {
+  margin: 0;
+}
+.z-index {
+  z-index: 111 !important;
 }
 .form-container {
   display: grid;
-  height: 100vh;
-  grid-template-columns: 1fr;
-  background-color: var(--lightBlue);
   justify-content: center;
+  grid-template-columns: 1fr;
+  min-height: 100vh;
+  background-color: var(--lightBlue);
 }
 .form-container .form-section {
   display: grid;
-  width: 70%;
   align-content: start;
-  margin: 0 auto;
-  padding: 3rem 0;
+  width: 100%;
+  margin: 2rem auto;
+  padding: 1.5rem 0 1rem 0;
   box-sizing: border-box;
+  border: 3px solid var(--lightGreen);
+  position: relative;
+}
+
+.form-container .form-section .tool {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  font-size: 0.9rem;
+  color: var(--white);
+  cursor: pointer;
+}
+.form-container .form-section .tool:hover {
+  transform: scale(1.01, 1.01);
+}
+.form-container .form-section .form-control .add-icon:hover {
+  transform: scale(1.04, 1.04);
 }
 .form-container .form-section .form-content {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   grid-template-rows: repeat(5, 1fr);
-  border: 1px solid rgb(64 128 203);
+  justify-content: center;
+  border: 1px solid var(--blue);
+  width: 99%;
+  margin: 0 auto;
+  position: relative;
 }
+.form-container .form-section .section-control-tool {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: -23px;
+  right: -3px;
+  height: 20px;
+  border-radius: 2px 2px 2px 0;
+  font-size: 14px;
+  padding: 1px 0;
+  box-sizing: border-box;
+}
+.form-container .form-section .section-control-tool .section-tools {
+  display: flex;
+}
+.form-container
+  .form-section
+  .section-control-tool
+  .section-tools
+  .tool-icon:not(:last-child) {
+  border-right: 1px solid var(--lightBorder);
+}
+.form-container .form-section .section-control-tool .section-tools {
+  background-color: var(--lightGreen);
+}
+.form-container .form-section .form-content .form-control {
+  display: grid;
+  align-items: center;
+  padding: 1rem 1rem 2rem;
+  border: 1px solid var(--blue);
+  position: relative;
+}
+.form-container .form-section .form-content .form-control .error-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--red);
+  color: var(--white);
+  min-width: 50px;
+  border: 1px solid var(--red);
+  text-transform: capitalize;
+  padding: 2px 4px;
+  box-sizing: border-box;
+  font-size: 0.8rem;
+  border-radius: 1px;
+}
+
+.form-container .form-section .form-content .form-control .form-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -20px;
+  width: 100px;
+  left: -2px;
+  height: 18px;
+  background: #3b74c7;
+  border-radius: 2px 2px 0px 0;
+  font-size: 13px;
+  padding: 1px 0;
+  box-sizing: border-box;
+  color: #fffcfc;
+}
+
+.form-container .form-section .form-content .form-control .form-control-resize {
+  position: absolute;
+  display: flex;
+  cursor: pointer;
+  right: -5px;
+  z-index: 111;
+}
+.form-container
+  .form-section
+  .form-content
+  .form-control
+  .form-control-resize:hover {
+  transform: scale(1.05, 1.05);
+}
+
 .form-container .form-section .form-content .form-control:nth-child(1),
 .form-container .form-section .form-content .form-control:nth-child(2),
 .form-container .form-section .form-content .form-control:nth-child(3) {
@@ -54,49 +196,64 @@ body {
 .form-container .form-section .form-content .form-control:nth-child(11) {
   grid-column: span 4;
 }
-.form-container .form-section .form-content .form-control {
-  display: grid;
-  align-items: center;
-  padding: 1rem;
-  border: 1px solid var(--blue);
-  position: relative;
-}
+
 .form-container .form-section .form-content .form-control > span {
-  display: flex;
+  display: inline-flex;
   justify-content: flex-end;
 }
-.form-container .form-section .form-content .form-control span .tool-icon {
-  width: 20px;
-  height: 20px;
-  font-size: 0.9rem;
+
+.form-container .form-section .form-content .form-control .form-control-tool {
   display: flex;
   align-items: center;
-  justify-content: center;
-  color: white;
-  background-color: var(--lightBrown);
-  cursor: pointer;
+  position: absolute;
+  top: -22px;
+  right: -2px;
+  height: 20px;
+  border-radius: 2px 2px 2px 0;
+  font-size: 14px;
+  padding: 1px 0;
+  box-sizing: border-box;
 }
 .form-container
   .form-section
   .form-content
   .form-control
-  span
-  .tool-icon:hover {
-  transform: scale(1.01, 1.01);
+  .form-control-tool
+  .form-tools {
+  display: flex;
 }
+.form-container
+  .form-section
+  .form-content
+  .form-control
+  .input-tools
+  .tool-icon {
+  background-color: var(--lightBrown);
+}
+.form-container
+  .form-section
+  .form-content
+  .form-control
+  .form-control-tool
+  .form-tools
+  .tool-icon {
+  background-color: var(--darkBlue);
+}
+
 .form-container
   .form-section
   .form-content
   .form-control
   span
   .tool-icon:not(:last-child) {
-  border-right: 1px solid #ffffff21;
+  border-right: 1px solid var(--lightBorder);
 }
 .form-container .form-section .form-content .form-control .input-control {
   position: relative;
   width: 100%;
   box-sizing: border-box;
   border: 2px solid var(--lightBrown);
+  padding: 1px;
 }
 .form-container
   .form-section
@@ -105,12 +262,12 @@ body {
   .input-control
   .input-field {
   width: 100%;
-  box-sizing: border-box;
   height: 30px;
+  box-sizing: border-box;
   outline: none;
   padding-left: 0.5rem;
   padding-right: 1.4rem;
-  border: 1px solid var(--lightBrown);
+  border: 1px solid var(--lightGrey);
 }
 .form-container
   .form-section
@@ -122,57 +279,81 @@ body {
   text-transform: capitalize;
 }
 
-.form-container .form-section .form-content .form-control .add-new {
-  display: flex;
-  position: relative;
-  justify-content: center;
-  align-self: center;
+.form-container .form-section .form-content .form-control .align-right {
+  justify-content: end;
+  right: -14px;
 }
-.form-container .form-section .form-content .form-control .add-new .add-icon {
-  position: absolute;
-  top: -10px;
-  align-items: center;
-  width: 20px;
-  height: 20px;
-  background-color: #c29967;
-  border-radius: 50%;
-  display: flex;
+.form-container .form-section .form-content .form-control .align-center {
   justify-content: center;
+}
+.form-container .form-section .form-content .form-control .add-new-row {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  bottom: -13px;
+  width: 100%;
+  z-index: 11;
+}
+
+.form-container
+  .form-section
+  .form-content
+  .form-control
+  .add-new-row
+  .add-row-icon {
+  background-color: var(--darkBlue);
+  border: 1px solid var(--lightBlack);
+}
+.form-container .form-section .add-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
   color: var(--white);
   cursor: pointer;
+}
+.form-container .form-section .add-section {
+  position: absolute;
+  top: -14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.form-container .form-section .add-section .add-icon {
+  background-color: var(--lightGreen);
+  border: 1px solid var(--lightBlack);
+}
+.form-container .form-section .form-content .form-control .add-new-input {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+  position: relative;
 }
 .form-container
   .form-section
   .form-content
   .form-control
-  .add-new
-  .add-icon:hover {
-  transform: scale(1.1, 1.1);
-}
-.form-container .form-section .form-content .form-control .add-new {
-  display: flex;
-  position: relative;
-  justify-content: center;
-  align-self: center;
-}
-.form-container .form-section .form-content .form-control .add-new-input {
-  width: 100%;
-  box-sizing: border-box;
-  height: 33px;
+  .add-new-input
+  .add-icon {
+  position: absolute;
+  top: -11px;
   background-color: var(--lightBrown);
-  border: 2px solid #a87e4a;
-  outline: none;
+  border: 1px solid var(--maroon);
+}
+.form-container .form-section .form-content .form-control .add-new-item {
   display: flex;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  height: 33px;
+  box-sizing: border-box;
+  background-color: var(--lightBrown);
+  border: 2px solid var(--darkBrown);
+  outline: none;
   margin-top: 1rem;
-}
-.form-container .form-section .form-content .form-control .add-new-icon {
-  color: var(--white);
-  cursor: pointer;
-}
-.form-container .form-section .form-content .form-control .add-new-icon:hover {
-  transform: scale(1.1, 1.1);
 }
 .form-container .form-section .form-content .form-control .input-icon {
   position: absolute;
@@ -185,10 +366,52 @@ body {
   transform: rotate(320deg);
 }
 
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltip-text {
+  visibility: hidden;
+  min-width: 40px;
+  background-color: #555;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 4px;
+  position: absolute;
+  top: -22px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  font-size: 0.6rem;
+}
+
+.tooltip .tooltip-text::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
 @media screen and (max-width: 600px) {
   .form-container .form-section {
-    width: 95%;
+    padding: 3rem 1rem !important;
   }
+
+  .form-container .form-section .form-content .form-control .align-right {
+    justify-content: center;
+    right: 0 !important;
+  }
+
   .form-container .form-section .form-content .form-control:nth-child(1),
   .form-container .form-section .form-content .form-control:nth-child(2),
   .form-container .form-section .form-content .form-control:nth-child(3),
@@ -205,6 +428,50 @@ body {
 }
 @media screen and (max-width: 992px) {
   .form-container .form-section {
-    width: 90%;
+    padding: 3rem 2rem;
+  }
+  .form-container .form-section .form-content .form-control .align-right {
+    right: -10px;
+  }
+  .form-container .form-section .form-content .form-control .add-new-row {
+    bottom: -9px !important;
+  }
+  .form-container
+    .form-section
+    .form-content
+    .form-control
+    .input-control
+    .add-icon {
+    width: 16px;
+    height: 16px;
+    top: -8px !important;
+    font-size: 0.7rem;
+  }
+  .form-container
+    .form-section
+    .form-content
+    .form-control
+    .add-new-item
+    .add-icon {
+    font-size: 0.7em;
+    top: 0 !important;
+  }
+  .form-container
+    .form-section
+    .form-content
+    .form-control
+    .add-new-row
+    .add-icon {
+    width: 16px;
+    height: 16px;
+    font-size: 0.7rem;
+  }
+  .form-container .form-section .form-content {
+    width: 100%;
+  }
+}
+@media screen and (min-width: 1500px) {
+  .form-container .form-section {
+    width: 70%;
   }
 }
